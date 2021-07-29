@@ -42,9 +42,11 @@ def main():
     deep_work_file.close()
     work_file.close()
     meeting_file.close()
-    print('total_deep_work: ', total_deep_work.seconds//3600, ' hours')
-    print('total_work: ', total_work.seconds//3600, ' hours')
-    print('total_meeting: ', total_meeting.seconds//3600, ' hours')
+    print('total_deep_work: ', total_deep_work.total_seconds()//3600, ' hours')
+    print('total_work: ', total_work.total_seconds()//3600, ' hours')
+    print('total_meeting: ', total_meeting.total_seconds()//3600, ' hours')
+    total = total_work + total_meeting + total_deep_work
+    print('total: ', total.total_seconds()//3600, ' hours')
 
 
 def get_timedelta(component, start_day_of_month):
